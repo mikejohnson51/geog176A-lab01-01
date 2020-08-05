@@ -1,0 +1,70 @@
+---
+title: "Geog 176A Lab 1"
+subtitle: "Learn Rmarkdown"
+author: "Mike Johnson"
+date: "8/5/2020"
+output:
+  html_document:
+    theme: darkly
+---
+
+
+# Header 1
+## Hearder 2
+### Header 3
+##### Header 5
+
+*****
+
+1. List 
+  - sub 1
+  - sub 2
+2. List 2
+3. List 3
+
+- unordered list 1
+- 2
+- 3
+
+* 1 
+* 2 
+
+******
+
+Text can be **bold**
+
+Text can *italics*
+
+KM^2^ KM~2~
+
+https://mikejohnson51.github.io/spds/
+
+[Class Website](https://mikejohnson51.github.io/spds/)
+
+![](../img/rmarkdownflow.png)
+
+
+The equation is $X = 2+ 2$
+
+$$X = 2+ 2$$
+
+```{r, message = FALSE, warning=FALSE, echo = FALSE}
+library(tidyverse)
+```
+
+
+```{r}
+cities = readr::read_csv("../data/uscities.csv")
+```
+
+```{r}
+threshold = 100000
+big_cities = filter(cities, population > threshold)
+dim(big_cities)
+
+ggplot(big_cities) +
+  aes(x = lng, y = lat) + 
+  geom_point()
+```
+
+
